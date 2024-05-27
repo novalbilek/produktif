@@ -1,0 +1,39 @@
+    <!DOCTYPE html>
+    <html lang="id">
+    <body>
+    <h1>HTML DOM event</h1>
+    <h2>The onkeydown Event</h2>
+
+    <p>
+        ketika ditekan dan tahan kebawah background inputan akan berubah warna menjadi merah
+        , ketika melepasnya akan berubah ke hijau
+        , ketika cuma ditahan akan berubah warna menjadi kuning
+    </p>
+    <label for="demo">ini label</label>
+
+    <!-- 
+        event saat mengetik (key down)
+        
+     -->
+    <input type="text" id="demo"
+    onkeydown="keydown()"
+    onkeyup="keyup()"
+    onkeypress="keypress()">
+
+<script>
+    /**ini function event ketik */
+    function keydown() {
+        document.getElementById("demo").style.backgroundColor = "red";
+    }
+
+    function keyup() {
+        document.getElementById("demo").style.backgroundColor = "green" ;
+    }
+
+    function keypress() {
+        document.getElementById("demo").style.backgroundColor ="yellow";
+    }
+</script>
+
+    </body>
+    </html>

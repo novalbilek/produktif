@@ -114,15 +114,15 @@
             let listError = [];
 
             [nilaiQuis, nilaiTugas, nilaiUTS, nilaiUAS].forEach((nilai) => {
-                nilai.value === "" ? (nilai.classList.add("bg-red-300"), listError.push(nilai ${nilai.id} kosong)) : null;
-                +nilai.value > 100 ? (nilai.classList.add("bg-red-300"), listError.push(${nilai.id} lebih dari 100)) : null;
-                +nilai.value < 0 ? (nilai.classList.add("bg-red-300"), listError.push(${nilai.id} kurang dari 0)) : null;
+                nilai.value === "" ? (nilai.classList.add("bg-red-300"), listError.push(`nilai ${nilai.id} kosong`)) : null;
+                +nilai.value > 100 ? (nilai.classList.add("bg-red-300"), listError.push(`${nilai.id} lebih dari 100`)) : null;
+                +nilai.value < 0 ? (nilai.classList.add("bg-red-300"), listError.push(`${nilai.id} kurang dari 0`)) : null;
                 +nilai.value >= 0 && +nilai.value <= 100 ? (nilai.classList.remove("bg-red-300")) : null;
             });
 
 
             listError.length > 0 ? (
-                sendError(Masalah Value: ${listError.join(", ")}),
+                sendError(`Masalah Value: ${listError.join(", ")}`),
                 document.getElementById("nilai-akhir").textContent = "-",
                 document.getElementById("indeks-presentasi").textContent = "-",
                 document.getElementById("keterangan").textContent = "Nilai Invalid",
@@ -168,7 +168,7 @@
                 ),
 
                 // update table
-                document.getElementById("nilai-akhir").textContent = nilaiAkhir*10/10,
+                document.getElementById("nilai-akhir").textContent = (nilaiAkhir*10/10).toString().slice(0, 5),
                 document.getElementById("indeks-presentasi").textContent = indeksPrestasi,
                 document.getElementById("keterangan").textContent = keterangan
             );
